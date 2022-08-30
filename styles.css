@@ -52,10 +52,32 @@ body {
     font-size: 18px;
 }
 
+.form-control label {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+}
+
 /* get rid of the blue outline around the input boxes during focus and valid states */
 .form-control input:focus,
 .form-control input:valid {
     outline: 0;
+    border-bottom-color: lightblue;
+}
+
+.form-control label span {
+    display: inline-block;
+    font-size: 18px;
+    min-width: 5px;
+    /* create transition effect for label letters when they move up the Y-axis */
+    transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+    color: lightblue;
+    /* move letters in labels up the Y-axis */
+    transform: translateY(-1.75rem);
 }
 
 .btn {
@@ -82,3 +104,4 @@ body {
 .text {
     margin-top: 2.75rem;
 }
+
